@@ -7,52 +7,53 @@ There are 100 noodles in your bowl of ramen. You take the ends of two noodles un
 
 ## Mathematical Explanation
 
-To solve this problem, we use the law of total expectation. We define $ E(n) $ as the expected number of circles formed when starting with $ n $ noodles.
+To solve this problem, we use the law of total expectation. We define $E(n)$ as the expected number of circles formed when starting with $n$ noodles.
 
 The law of total expectation states that:
 
- $E(X) = P(A)E(X|A) + P(B)E(X|B) $
+ $E(X) = P(A)E(X|A) + P(B)E(X|B)$
 
 In this context:
 - Let $A$ be the event where the first pair of ends you pick form a new circle.
-- Let $ B $ be the event where the first pair of ends you pick do not form a new circle.
+- Let $B$ be the event where the first pair of ends you pick do not form a new circle.
 
-When we connect two ends together, it effectively merge the two noodle into one from the bowl. To form a circle when we have $ n $ noodles, we need to connect the two ends of the same noodle. This means that after selecting one noodle, we are left with $ 2n-1 $ ends, with only one pair of ends that will form a circle.
+When we connect two ends together, it effectively merge the two noodle into one from the bowl. To form a circle when we have $n$ noodles, we need to connect the two ends of the same noodle. This means that after selecting one noodle, we are left with $2n-1$ ends, with only one pair of ends that will form a circle.
 
 The probability of forming a new circle is:
 
- $P(A) = \frac{1}{2n - 1}$ 
+$P(A) = \frac{1}{2n - 1}$ 
 
 
-Given that the first pair of ends forms a new circle, the expected number of circles in the remaining $ n-1 $ noodles plus one circle is:
+Given that the first pair of ends forms a new circle, the expected number of circles in the remaining $n-1$ noodles plus one circle is:
 
-$ E(n | A) = E(n-1) + 1 $
+$E(n | A) = E(n-1) + 1$
 
-Given that the first pair of ends does not form a new circle, the expected number of circles in the remaining $ n-1 $ noodles is:
+Given that the first pair of ends does not form a new circle, the expected number of circles in the remaining $n-1$ noodles is:
 
-$ E(n | B) = E(n-1) $
+$E(n | B) = E(n-1)$
 
 Using the law of total expectation, we get:
 
-$ E(n) = \frac{1}{2n-1} \times (E(n-1) + 1) + \left(1 - \frac{1}{2n-1}\right) \times E(n-1) $
+$E(n) = \frac{1}{2n-1} \times (E(n-1) + 1) + \left(1 - \frac{1}{2n-1}\right) \times E(n-1)$
 
 This simplifies to:
 
-$ E(n) = \frac{1}{2n-1} + E(n-1) $
-
-
-We can use this recurrence relation to express \( E(n) \) as a sum. Starting from \( E(1) = 1 \), we have:
-
-\[ E(2) = \frac{1}{3} + E(1) = \frac{1}{3} + 1 \]
-\[ E(3) = \frac{1}{5} + E(2) = \frac{1}{5} + \left( \frac{1}{3} + 1 \right) \]
-
-Continuing this pattern, we can express \( E(n) \) as:
-
-\[ E(n) = \sum_{k=1}^{n} \frac{1}{2k-1} \]
-
-That represent the expected number of circles formed with \( n \) noodles is given by the sum of the series
+$E(n) = \frac{1}{2n-1} + E(n-1)$
 
 With only one noodle in the bowl, a circle is automatically created, so $E(1)=1$
+
+We can use this recurrence relation to express $E(n)$ as a sum. Starting from $E(1) = 1$, we have:
+
+$E(2) = \frac{1}{3} + E(1) = \frac{1}{3} + 1$
+$E(3) = \frac{1}{5} + E(2) = \frac{1}{5} + \left( \frac{1}{3} + 1 \right)$
+
+Continuing this pattern, we can express $E(n)$ as:
+
+$E(n) = \sum_{k=1}^{n} \frac{1}{2k-1}$
+
+That represent the expected number of circles formed with $n$ noodles is given by the sum of the series
+
+
 
 ## Simulation Code
 
