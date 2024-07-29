@@ -68,7 +68,7 @@ def with_calculted_probabilities(n):
     
     return E
 ```
-> Average number of circles with the calculated probabilities, the for n = 100 noodles: 3
+> Average number of circles with the calculated probabilities, the for n = 100 noodles: 3.284 
 
 
 To verify the mathematical solution, we can simulate the process of forming circles by randomly pairing ends of noodles. 
@@ -88,4 +88,4 @@ def n_random_noodle(nb_noodles):
             cirles+=1
     return cirles    
 ```
-> Average number of circles with the random simulation, for n = 100 noodles: 3
+> Average number of circles with the random simulation, for n = 100 noodles: 3.263 
