@@ -41,6 +41,16 @@ This simplifies to:
 $ E(n) = \frac{1}{2n-1} + E(n-1) $
 
 
+We can use this recurrence relation to express \( E(n) \) as a sum. Starting from \( E(1) = 1 \), we have:
+
+\[ E(2) = \frac{1}{3} + E(1) = \frac{1}{3} + 1 \]
+\[ E(3) = \frac{1}{5} + E(2) = \frac{1}{5} + \left( \frac{1}{3} + 1 \right) \]
+
+Continuing this pattern, we can express \( E(n) \) as:
+
+\[ E(n) = \sum_{k=1}^{n} \frac{1}{2k-1} \]
+
+That represent the expected number of circles formed with \( n \) noodles is given by the sum of the series
 
 With only one noodle in the bowl, a circle is automatically created, so $E(1)=1$
 
